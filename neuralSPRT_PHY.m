@@ -249,8 +249,8 @@ if fig_switch(1) || fig_switch(2)
                     % Divide trials into five quantiles
                 group = 5; 
                     % Create color map
-                interval = floor((64-1)/(group-1));
-                map = colormap;
+                map = colormap('jet');
+                interval = floor((size(map,1)-1)/(group-1));
                 color_map = map(1:interval:(1+interval*(group-1)),:);
                     % For the analysis of kth epoch, select trials in which N*>=k+1 (i.e. do not include N*=k) to 
                     % avoid contamination of saccadic preparation.
@@ -392,8 +392,8 @@ if fig_switch(1) || fig_switch(2)
             case 'LLR'
                 % create color table
                 group = 8;
-                interval = floor((64-1)/(group-1));
-                map = colormap;
+                map = colormap('jet');
+                interval = floor((size(map,1)-1)/(group-1));
                 color_map = map(1:interval:(1+interval*(group-1)),:);
 
                 switch group
@@ -630,10 +630,8 @@ if fig_switch(3)
     num_fig = 5;
     
     group = 5;
-    interval = floor((64-1)/(group-1));
-    if ~exist('map','var')
-        map = colormap;
-    end
+    map = colormap('jet');
+    interval = floor((size(map,1)-1)/(group-1));
     color_map = map(1:interval:(1+interval*(group-1)),:);
 
     % Extract the peri-saccadic FR [-500ms 150ms]
@@ -850,8 +848,8 @@ if fig_switch(4)
     group = 8;
     
     color_group = group;
-    interval = floor((64-1)/(color_group-1));
-    map = colormap;
+    map = colormap('jet');
+    interval = floor((size(map,1)-1)/(group-1));
     color_map = map(1:interval:(1+interval*(color_group-1)),:);
     
     % Do not touch this for plot %%%%%%%%%
